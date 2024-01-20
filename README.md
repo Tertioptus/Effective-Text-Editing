@@ -4,6 +4,7 @@ The quest for systems the most productive text manipulation and accessibility in
 ## Standard Tools
 - Vim
 - Latex
+- Markdown
 - Git
 - Bash
 
