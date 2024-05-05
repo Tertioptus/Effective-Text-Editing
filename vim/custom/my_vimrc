@@ -1,0 +1,8 @@
+" For me, I think its better to always have line numbers visible, and to disable them temporarily versus the alternative.
+set number
+
+" Prevent VIM from automatically printing the first character of the previous line.  For example, Java comment(//) operators or Markdown Header (#) operators.
+set formatoptions-=c formatoptions-=r formatoptions-=o
+
+" Apply natural word wrapping, instead of the default character wrap.
+set linebreak
