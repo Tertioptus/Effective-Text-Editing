@@ -1,11 +1,16 @@
 \documentclass{article}
 \usepackage{ben-basic}
+\usepackage{multiaudience}
+\SetNewAudience{fantasy}
 \title{Effective Text Editing}
 \begin{document}
 \pdfbookmark[section]{Contents}{toc}
 %\shorttoc{Contents}{1}
 \tableofcontents
 \clearpage
+
+\showto{fantasy}{This only shows to the initiated.}
+
 \section{Literature}
 The most basic unit of textual information is not a letter, nor a word, but a sentence.  A letter or word are only supplemental by themselves, and if they hold any inherit meaning, it is only because they are implying a relative sentence.
 
