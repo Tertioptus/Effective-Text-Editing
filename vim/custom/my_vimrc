@@ -6,3 +6,8 @@ set formatoptions-=c formatoptions-=r formatoptions-=o
 
 " Apply natural word wrapping, instead of the default character wrap.
 set linebreak
+
+let &t_ti.= "\e[1 q"
+let &t_SI.= "\e[6 q"
+let &t_EI.= "\e[2 q"
+let &t_te.= "\e[0 q"
