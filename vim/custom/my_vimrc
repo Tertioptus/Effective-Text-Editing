@@ -1,5 +1,8 @@
 set number
 
+" Allows for syntax highlighting
+syntax on
+
 " Prevent VIM from automatically printing the first character of the previous line.  For example, Java comment(//) operators or Markdown Header (#) operators.
 set formatoptions-=c formatoptions-=r formatoptions-=o
 
