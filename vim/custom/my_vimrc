@@ -1,5 +1,9 @@
 set number
 
+"Disable annoying bell sound when end of line/ end of file is reached
+set visualbell
+set t_vb=
+
 " Allows for syntax highlighting
 syntax on
 
