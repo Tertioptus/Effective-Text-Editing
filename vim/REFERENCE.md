@@ -1,5 +1,10 @@
 # Vim Reference Index
 
+**Contents**
+* [File](#File)
+* [Misc](#misc)
+* [Window](#Window)
+
 ## File
 * Create New
 	* `:e <file name>`
