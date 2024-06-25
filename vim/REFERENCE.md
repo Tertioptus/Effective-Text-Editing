@@ -2,7 +2,7 @@
 
 **Contents**
 * [File](#File)
-* [Misc](#misc)
+* [Misc](#Misc)
 * [Window](#Window)
 
 ## File
@@ -15,7 +15,7 @@
 * Select File
 	* `:b <number>`
 * Close (all)
-	* `q(all)`
+	* `:q(all)`
 
 ## Misc
 * Change Theme
