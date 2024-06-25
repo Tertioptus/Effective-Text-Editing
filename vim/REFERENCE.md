@@ -36,3 +36,16 @@
 * Resize
 	* `:resize <number>`
 	* `:vertical resize <number>`
+
+## View
+* Paging
+	* *Back* `<CTRL> + b`
+	* *Forward* `<CTRL> + f`
+	* *Half Back* `<CTRL> + u`
+	* *Half Forward* `<CTRL> + d`
+* Focus
+	* *Move screen up one line* `<CTRL> + y`
+	* *Move screen down one line* `<CTRL> + e`
+	* *Move current line to the screen's center* `z + z`
+	* *Move current line to the screen's top* `z + t`
+	* *Move current line to the screen's bottom* `z + b`
