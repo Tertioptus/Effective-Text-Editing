@@ -4,6 +4,7 @@
 * [File](#File)
 * [Misc](#Misc)
 * [Window](#Window)
+* [View](#View)
 
 ## File
 * Create New
@@ -43,9 +44,10 @@
 	* *Forward* `<CTRL> + f`
 	* *Half Back* `<CTRL> + u`
 	* *Half Forward* `<CTRL> + d`
-* Focus
-	* *Move screen up one line* `<CTRL> + y`
-	* *Move screen down one line* `<CTRL> + e`
-	* *Move current line to the screen's center* `z + z`
-	* *Move current line to the screen's top* `z + t`
-	* *Move current line to the screen's bottom* `z + b`
+* Move screen by line
+	* *Up* `<CTRL> + y`
+	* *Down* `<CTRL> + e`
+* Move current line to screen positon
+	* *Center* `z + z`
+	* *Top* `z + t`
+	* *Bottom* `z + b`
