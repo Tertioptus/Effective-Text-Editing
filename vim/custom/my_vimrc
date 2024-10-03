@@ -9,12 +9,29 @@ set linebreak
 " Sets and resets cursor as vertical bar and block for Vim insert and normal mode, then resets it upon Vim exit.
 " The backslashes are not comment operators, they escape any aliases set on bash commands
 if has("autocmd")
-  au VimEnter,InsertLeave * silent execute '!echo -ne "\e[2 q"' | redraw!
-  au InsertEnter,InsertChange *
+	au VimEnter,InsertLeave * silent execute '!echo -ne "\e[2 q"' | redraw!
+	au InsertEnter,InsertChange *
 \ if v:insertmode == 'i' | 
 \   silent execute '!echo -ne "\e[6 q"' | redraw! |
 \ elseif v:insertmode == 'r' |
 \   silent execute '!echo -ne "\e[4 q"' | redraw! |
 \ endif
-au VimLeave * silent execute '!echo -ne "\e[ q"' | redraw!
+	au VimLeave * silent execute '!echo -ne "\e[ q"' | redraw!
+
+	" Embolden
+	au BufNewFile,BufRead *.md nmap <C-E> 0wi**<esc>A**<esc>
+
+	" Italicize
+	au BufNewFile,BufRead *.md nmap <C-I> 0wi*<esc>A*<esc>
+
+	" Strikethrough
+	au BufNewFile,BufRead *.md nmap <C-S> 0wi~~<esc>A~~<esc>
+
+	" Conversation Controls
+	au BufNewFile,BufRead *Conversation*.md imap <C-N> <esc>b"0dwo-<esc>"1x"1100p"2yyo### <esc>"0p"2po#### 
+	au BufNewFile,BufRead *Conversation*.md nmap <C-A> o* **Archive**: 
+	au BufNewFile,BufRead *Conversation*.md nmap <C-B> o* **Backlog**: 
+	au BufNewFile,BufRead *Conversation*.md nmap <C-H> o* **History**: 
+	au BufNewFile,BufRead *Conversation*.md nmap <C-T> o* **Thread**: 
+
 endif
