@@ -16,22 +16,32 @@ if has("autocmd")
 \ elseif v:insertmode == 'r' |
 \   silent execute '!echo -ne "\e[4 q"' | redraw! |
 \ endif
-	au VimLeave * silent execute '!echo -ne "\e[ q"' | redraw!
 
-	" Embolden
-	au BufNewFile,BufRead *.md nmap <C-E> 0wi**<esc>A**<esc>
+" Embolden
+execute "set <A-E>=\033e"
+au BufNewFile,BufRead *.md nmap <A-E> 0wi**<esc>A**<esc>
 
-	" Italicize
-	au BufNewFile,BufRead *.md nmap <C-I> 0wi*<esc>A*<esc>
+" Italicize
+execute "set <A-I>=\033i"
+au BufNewFile,BufRead *.md nmap <A-I> 0wi*<esc>A*<esc>
 
-	" Strikethrough
-	au BufNewFile,BufRead *.md nmap <C-S> 0wi~~<esc>A~~<esc>
+" Strikethrough
+execute "set <A-S>=\033s"
+au BufNewFile,BufRead *.md nmap <A-S> 0wi~~<esc>A~~<esc>
 
-	" Conversation Controls
-	au BufNewFile,BufRead *Conversation*.md imap <C-N> <esc>b"0dwo-<esc>"1x"1100p"2yyo### <esc>"0p"2po#### 
-	au BufNewFile,BufRead *Conversation*.md nmap <C-A> o* **Archive**: 
-	au BufNewFile,BufRead *Conversation*.md nmap <C-B> o* **Backlog**: 
-	au BufNewFile,BufRead *Conversation*.md nmap <C-H> o* **History**: 
-	au BufNewFile,BufRead *Conversation*.md nmap <C-T> o* **Thread**: 
+" Conversation Controls
+execute "set <A-N>=\033n"
+au BufNewFile,BufRead *Conversation*.md inoremap <A-N> <esc>b"0dwo-<esc>"1x"1100p"2yyo### <esc>"0p"2po#### 
 
+execute "set <A-A>=\033a"
+au BufNewFile,BufRead *Conversation*.md nmap <A-A> o* **Archive**: 
+
+execute "set <A-B>=\033b"
+au BufNewFile,BufRead *Conversation*.md nmap <A-B> o* **Backlog**:<CR>    - 
+
+execute "set <A-H>=\033h"
+au BufNewFile,BufRead *Conversation*.md nmap <A-H> o* **History**:<CR>    <esc>"=strftime('%m%d%M%S. ')<CR>pi 
+
+execute "set <A-T>=\033t"
+au BufNewFile,BufRead *Conversation*.md nmap <A-T> o* **Thread**: 
 endif
