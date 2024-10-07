@@ -24,17 +24,22 @@ if has("autocmd")
 \   silent execute '!echo -ne "\e[4 q"' | redraw! |
 \ endif
 
+
+" Clear
+execute "set <A-C>=\033c"
+au BufNewFile,BufRead *.md nmap <A-C> :silent! s/\*\\|\~//g<CR>
+
 " Embolden
 execute "set <A-E>=\033e"
-au BufNewFile,BufRead *.md nmap <A-E> 0wi**<esc>A**<esc>
+au BufNewFile,BufRead *.md nmap <A-E> :silent! s/\*\\|\~//g<CR>0wi**<esc>A**<esc>
 
 " Italicize
 execute "set <A-I>=\033i"
-au BufNewFile,BufRead *.md nmap <A-I> 0wi*<esc>A*<esc>
+au BufNewFile,BufRead *.md nmap <A-I> :silent! s/\*\\|\~//g<CR>0wi*<esc>A*<esc>
 
 " Strikethrough
 execute "set <A-S>=\033s"
-au BufNewFile,BufRead *.md nmap <A-S> 0wi~~<esc>A~~<esc>
+au BufNewFile,BufRead *.md nmap <A-S> :silent! s/\*\\|\~//g<CR>0wi~~<esc>A~~<esc>
 
 " Conversation Controls
 execute "set <A-N>=\033n"
