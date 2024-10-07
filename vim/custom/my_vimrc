@@ -57,3 +57,8 @@ au BufNewFile,BufRead *Conversation*.md nmap <A-H> o* **History**:<CR>    <esc>"
 execute "set <A-T>=\033t"
 au BufNewFile,BufRead *Conversation*.md nmap <A-T> o* **Thread**: 
 endif
+
+" Removes delay from cursor change during mode change
+set ttimeout
+set ttimeoutlen=1
+set ttyfast
