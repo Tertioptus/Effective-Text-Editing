@@ -82,6 +82,14 @@ if executable('explorer.exe')
     au BufNewFile,BufRead *.md command! Ren :silent !pandoc % -o "%:p:r".html -s --quiet && echo "%:p:r".html && cd "%:p:h" && echo "%:p:h" && echo "%:t:r" && explorer.exe "%:t:r".html
 "
     au BufNewFile,BufRead *.tex command! Ren :silent !pdflatex % && explorer.exe "%:p:r".pdf
+elseif executable('chromium')
+    " Render html from current file  
+    au BufNewFile,BufRead *.md command! Ren :!pandoc % -o output.html -s --quiet && chromium output.html
+
+    au BufNewFile,BufRead *.tex command! Ren :silent !pdflatex % && chromium "%:p:r".pdf
+
+    "Latex publish pdf
+    au BufNewFile,BufRead *.tex nnoremap <leader>p :w<CR>:!pdflatex -jobname `basename $PWD` main.tex<CR>:!cp *.pdf /mnt/chromeos/GoogleDrive/MyDrive/books/<CR>
 endif
 " Show today's project bash.
 command! Pbt :r !find . -name "$(date +\%Y\%m\%d)*xpf*md" -printf "\%f\n"
