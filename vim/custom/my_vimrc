@@ -1,11 +1,43 @@
+"CONTENTS
+" - MISCELLANEOUS
+" - INITIAL_SETTINGS
+" - KEY_MAPPINGS
+" - COMMAND_MAPPINGS
+" - CONSOLE_ADJUSTMENT
+" - CUSTOM_MARKDOWN_TOOLS
+
+"-------------------MISCELLANEOUS-------------------
+colorscheme desert
+
+" Allows for syntax highlighting
+syntax on
+
+filetype off                  " required
+filetype plugin indent on    " required
+"-------------------INITIAL_SETTINGS-------------------
+set nocompatible              " be iMproved, required
 set number
+set title
+
+" show existing tab with 4 spaces width
+set tabstop=4
+" when indenting with '>', use 4 spaces width
+set shiftwidth=4
+
+" On pressing tab, insert 4 spaces
+set expandtab
 
 "Disable annoying bell sound when end of line/ end of file is reached
 set visualbell
 set t_vb=
 
-" Allows for syntax highlighting
-syntax on
+" Enable mouse
+set mouse=a
+
+" More natural split opening 
+" https://thoughtbot.com/blog/vim-splits-move-faster-and-more-naturally
+set splitbelow
+set splitright
 
 " Prevent VIM from automatically printing the first character of the previous line.  For example, Java comment(//) operators or Markdown Header (#) operators.
 set formatoptions-=c formatoptions-=r formatoptions-=o
@@ -13,6 +45,55 @@ set formatoptions-=c formatoptions-=r formatoptions-=o
 " Apply natural word wrapping, instead of the default character wrap.
 set linebreak
 
+" Removes delay from cursor change during mode change
+set ttimeout
+set ttimeoutlen=1
+set ttyfast
+
+"-------------------KEY_MAPPINGS-------------------
+" Fix start with replace mode issue.
+nnoremap <esc>^[ <esc>^[
+
+" Bind window switching commands directly to the CTRL key.
+noremap <silent> <C-h> <C-W>h
+noremap <silent> <C-j> <C-W>j
+noremap <silent> <C-k> <C-W>k
+noremap <silent> <C-l> <C-W>l
+noremap <silent> <C-x> <C-W>x
+
+" Use F5 to redraw page, particularly after shell commands.
+nnoremap <F5> :silent :make<CR>:redr!<CR>
+
+" Type '\cd' in normal mode to move the working directory to
+" that of the file in focus
+nnoremap <leader>cd :lcd %:h<CR>
+
+" In visual mode, <leader>y copies selection to Windows clipboard
+if executable('clip.exe')
+    vnoremap <leader>y y:call system('clip.exe', @")<CR>
+endif
+
+" Show definition of selection word by calling dict command.
+xnoremap <Leader>d y:echo system("dict ".shellescape(@"))<CR>
+
+"-------------------COMMAND_MAPPINGS-------------------
+" Render html from current file
+if executable('explorer.exe')
+    au BufNewFile,BufRead *.md command! Ren :silent !pandoc % -o "%:p:r".html -s --quiet && echo "%:p:r".html && cd "%:p:h" && echo "%:p:h" && echo "%:t:r" && explorer.exe "%:t:r".html
+"
+    au BufNewFile,BufRead *.tex command! Ren :silent !pdflatex % && explorer.exe "%:p:r".pdf
+endif
+" Show today's project bash.
+command! Pbt :r !find . -name "$(date +\%Y\%m\%d)*xpf*md" -printf "\%f\n"
+command! Pbtx :r !find . -name "$(date +\%Y\%m\%d)*xpf*md"
+
+" Remap save and quit capital letters
+:command WQ wq
+:command Wq wq
+:command W w
+:command Q q
+
+"-------------------CONSOLE_ADJUSTMENT-------------------
 " Sets and resets cursor as vertical bar and block for Vim insert and normal mode, then resets it upon Vim exit.
 " The backslashes are not comment operators, they escape any aliases set on bash commands
 if has("autocmd")
@@ -24,7 +105,7 @@ if has("autocmd")
 \   silent execute '!echo -ne "\e[4 q"' | redraw! |
 \ endif
 
-
+"-------------------CUSTOM_MARKDOWN_TOOLS-------------------
 " Clear
 execute "set <A-C>=\033c"
 au BufNewFile,BufRead *.md nmap <A-C> :silent! s/\*\\|\~//g<CR>
@@ -57,8 +138,3 @@ au BufNewFile,BufRead *Conversation*.md nmap <A-H> o* **History**:<CR>    <esc>"
 execute "set <A-T>=\033t"
 au BufNewFile,BufRead *Conversation*.md nmap <A-T> o* **Thread**: 
 endif
-
-" Removes delay from cursor change during mode change
-set ttimeout
-set ttimeoutlen=1
-set ttyfast
