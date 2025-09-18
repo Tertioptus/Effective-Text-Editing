@@ -80,8 +80,10 @@ xnoremap <Leader>d y:echo system("dict ".shellescape(@"))<CR>
 " Render html from current file
 if executable('explorer.exe')
     au BufNewFile,BufRead *.md command! Ren :silent !pandoc % -o "%:p:r".html -s --quiet && echo "%:p:r".html && cd "%:p:h" && echo "%:p:h" && echo "%:t:r" && explorer.exe "%:t:r".html
-"
-    au BufNewFile,BufRead *.tex command! Ren :silent !pdflatex % && explorer.exe "%:p:r".pdf
+    " On windows, calling chrome.exe directly against the pdf did not work well.
+    " So lauching the directory in explorer works well enough.
+    au BufNewFile,BufRead *.tex command! Ren :silent !mkdir -p .tex; pdflatex -output-directory .tex % && cd "%:p:h" && explorer.exe .tex
+
 elseif executable('chromium')
     " Render html from current file  
     au BufNewFile,BufRead *.md command! Ren :!pandoc % -o output.html -s --quiet && chromium output.html
@@ -91,6 +93,7 @@ elseif executable('chromium')
     "Latex publish pdf
     au BufNewFile,BufRead *.tex nnoremap <leader>p :w<CR>:!pdflatex -jobname `basename $PWD` main.tex<CR>:!cp *.pdf /mnt/chromeos/GoogleDrive/MyDrive/books/<CR>
 endif
+
 " Show today's project bash.
 command! Pbt :r !find . -name "$(date +\%Y\%m\%d)*xpf*md" -printf "\%f\n"
 command! Pbtx :r !find . -name "$(date +\%Y\%m\%d)*xpf*md"
