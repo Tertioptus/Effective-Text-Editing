@@ -77,9 +77,15 @@ endif
 xnoremap <Leader>d y:echo system("dict ".shellescape(@"))<CR>
 
 "-------------------COMMAND_MAPPINGS-------------------
-" Render html from current file
+" Render html from current file" % - Current buffer's file name.
+" :p - Expands to the full path of the file.
+" :r - Removes the file extension.
+" :e - Extracts the file extension.
+" :h - Head of directory path.
+" :t - Tail of directory path.
 if executable('explorer.exe')
-    au BufNewFile,BufRead *.md command! Ren :silent !pandoc % -o "%:p:r".html -s --quiet && echo "%:p:r".html && cd "%:p:h" && echo "%:p:h" && echo "%:t:r" && explorer.exe "%:t:r".html
+"    au BufNewFile,BufRead *.md command! Ren :silent !mkdir -p transient && pandoc % -o ${PWD}"transient/%:p:r".html -s --quiet && echo "%:p:r".html && cd "%:p:h" && echo "%:p:h" && echo "%:t:r" && explorer.exe "%:t:r".html
+    au BufNewFile,BufRead *.md command! Ren :silent !mkdir -p transient && pandoc % -o ${PWD}"/transient/%:t:r".html -s --quiet && cd transient && explorer.exe "transient/,%:t:r".html
     " On windows, calling chrome.exe directly against the pdf did not work well.
     " So lauching the directory in explorer works well enough.
     au BufNewFile,BufRead *.tex command! Ren :silent !mkdir -p .tex; pdflatex -output-directory .tex % && cd "%:p:h" && explorer.exe .tex
