@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Effective Text Editing</title>
+    <style id="font">
+        html {
+            font-family: Arial, sans-serif;
+            font-size: 17px;
+            line-height: 1.68;
+            color: #1a1a1a;
+            min-width: 1104px;
+        }
+    </style>
+    <style id="header">
+        h1 { margin: 0;}
+        nav {
+            display: grid;
+            grid-template-columns:
+                [page-start request-start response-gutter-start] 60px
+                [response-gutter-end response-start] 60px 60px 60px 60px 60px 60px
+                [request-end request-gutter-start] 60px [page-end request-gutter-end response-end];
+            grid-column-gap: 50px;
+        }
+        nav .col {
+            grid-column: span 3;
+        }
+        nav a {
+            text-decoration: unset;
+        }
+        nav ul {
+          padding: 0;          
+        }
+        nav li {
+         list-style-type: none; 
+          padding-left: 0px;
+          list-style-type: none;
+        }
+        nav li:first-child {
+            margin: 0;       
+            font-size: 20px;
+            font-weight: 1000;
+        }
+        nav li:first-child a {
+            color: rgba(0, 100, 200, 0.8);
+        }
+    </style>
+
+    <style>
+        dl {
+          display: grid;
+          grid-gap: 4px 16px;
+          grid-template-columns: max-content;
+        }
+        dt {
+          font-weight: bold;
+        }
+        dt::after { content: ":"}
+        dd {
+          margin: 0;
+          grid-column-start: 2;
+          background-color: #F4F4F4;
+          width: 700px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Effective Text Editing</h1>
+    <hr/>
+    <nav>
+        <div class="col">
+            <ul>
+                <li><a href="#html">HTML</a></li>
+            </ul>
+        </div>
+        <div class="col">
+            <ul>
+                <li><a href="#workspaces">Workspaces</a></li>
+            </ul>
+        </div>
+    </nav>
+    <hr/>
+    <h2 id="html">HTML</h2>
+    <p>The integrated browser in VS Code can be used to view live updates of HTML files upon saved changes.</p>
+
+    <h2>Vim</h2>
+
+    <h3 id="workspaces">Workspaces</h3>
+    <p>Sessions are like workspaces that can maintain a set of files for editing.</p>
+    <dl>
+        <dt>Save a session</dt>
+        <dd><code>:mksession! ~/.vim/sessions/session.vim</code></dd>
+        <dd><code>:mksession! ~/.development.vim</code></dd>
+        <dd>"session.vim" is named as example, but it would be best to use a more contextual name that represents the nature of the workspace activity (e.g., "development.vim", "research.vim", "loomis.vim").</dd>
+        <dd>Some use a "sessions" directory is added to seperate session files from other file types in that directory, but it is not necessary. While an alternative would be to store a workspace file at the user's home directory as a hidden file. That way you don't get result bloat from normal home directory interrogation, but you get a more easily accessible location for saving those files.</dd>
+        <dt>Restore that session</dt>
+        <dd><code>vim -S .vim/sessions/session.vim</code></dd>
+        <dd><code>vim -S .development.vim</code></dd>
+    </dl>
+</body>
+</html>

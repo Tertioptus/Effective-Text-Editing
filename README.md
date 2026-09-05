@@ -3,6 +3,9 @@ The quest for systems the most productive text manipulation and accessibility in
 
 ## Standard Tools
 - Vim
+    * Emmet HTML Assist
+        * [Emmet Vim Repo](https://github.com/mattn/emmet-vim.git)
+        * [Installation Youtube Video](https://www.youtube.com/watch?v=xQtTsytGZZ0)
 - Latex
 - Markdown
 - Git
