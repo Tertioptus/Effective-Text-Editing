@@ -1,0 +1,47 @@
+/* The standard selected for dl structures is for a typical glossary type style, with the key isolated on the left and the value content fixed on the right. */
+dl {
+  display: grid;
+  grid-gap: 4px 16px;
+  grid-template-columns: max-content;
+}
+dt {
+  font-weight: bold;
+}
+dt::after { content: ":"}
+dd {
+  margin: 0;
+  grid-column-start: 2;
+  background-color: #F4F4F4;
+  width: 700px;
+}
+
+/* For some dl structures the whole line for the value may be desired, and thus the following "vertical" class can be specificed on a dl. In these cases, the key will proceeds its one or more values vertically. */
+dl.vertical {
+    display: block;
+}
+dl.vertical dd {
+    width: revert;
+}
+.warning { color: rgba(130, 0, 0, 1); }
+.info { color: rgba(0, 0, 130, 1); }
+.suspended { color: rgba(130, 130, 130, 1); }
+
+
+th {text-align:left}
+th.title {text-align:center}
+
+table {
+    outline: 1px solid #000;
+    border-collapse: collapse;
+}
+
+table,
+th,
+td {
+    border: 1px solid #CCC;
+    padding: 4px;
+    text-align:right;
+}
+td:first-child {
+    text-align:left;
+}

@@ -3,66 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Effective Text Editing</title>
-    <style id="font">
-        html {
-            font-family: Arial, sans-serif;
-            font-size: 17px;
-            line-height: 1.68;
-            color: #1a1a1a;
-            min-width: 1104px;
-        }
-    </style>
-    <style id="header">
-        h1 { margin: 0;}
-        nav {
-            display: grid;
-            grid-template-columns:
-                [page-start request-start response-gutter-start] 60px
-                [response-gutter-end response-start] 60px 60px 60px 60px 60px 60px
-                [request-end request-gutter-start] 60px [page-end request-gutter-end response-end];
-            grid-column-gap: 50px;
-        }
-        nav .col {
-            grid-column: span 3;
-        }
-        nav a {
-            text-decoration: unset;
-        }
-        nav ul {
-          padding: 0;          
-        }
-        nav li {
-         list-style-type: none; 
-          padding-left: 0px;
-          list-style-type: none;
-        }
-        nav li:first-child {
-            margin: 0;       
-            font-size: 20px;
-            font-weight: 1000;
-        }
-        nav li:first-child a {
-            color: rgba(0, 100, 200, 0.8);
-        }
-    </style>
-
-    <style>
-        dl {
-          display: grid;
-          grid-gap: 4px 16px;
-          grid-template-columns: max-content;
-        }
-        dt {
-          font-weight: bold;
-        }
-        dt::after { content: ":"}
-        dd {
-          margin: 0;
-          grid-column-start: 2;
-          background-color: #F4F4F4;
-          width: 700px;
-        }
-    </style>
+    <link rel="stylesheet" href="html/font.css">
+    <link rel="stylesheet" href="html/header.css">
+    <link rel="stylesheet" href="html/content.css">
 </head>
 <body>
     <h1>Effective Text Editing</h1>
@@ -75,27 +18,74 @@
         </div>
         <div class="col">
             <ul>
+                <li><a href="#vim">Vim</a></li>
+                <li><a href="#top-new-skills">Top New Skills</a></li>
                 <li><a href="#workspaces">Workspaces</a></li>
+                <li><a href="#plugins">Plugins</a></li>
+            </ul>
+        </div>
+        <div class="col">
+            <ul>
+                <li>
+                    <a href="http://">Git</a>
+                </li>
+                <li><a href="#git-recipes">Recipes</a></li>
             </ul>
         </div>
     </nav>
     <hr/>
+    <h2 id="git">Git</h2>
+
+    <h3 id="git-recipes">Recipes</h3>
+
+    <dl class="vertical">
+        <dt>Set remote repo to SSH mode</dt>
+        <dd><code>git remote set-url origin git@bitbucket.org-illumifin:illumifin/giaswebportal.git</code></dd>
+    </dl>
+
     <h2 id="html">HTML</h2>
     <p>The integrated browser in VS Code can be used to view live updates of HTML files upon saved changes.</p>
 
-    <h2>Vim</h2>
+    <h2 id="vim">Vim</h2>
+
+    <h3 id="top-new-skills">Top New Skills</h3>
+    <ol>
+        <li>
+            <b>Text Autocompletion</b>
+            <p>Press CTRL-N after typing a few characters to get text complete. <a href="https://www.baeldung.com/linux/vim-autocomplete">More info.</a></p>
+
+        </li>
+        <li>
+            <b>Command Autocompletion</b>
+            <p>When in command mode, type a few characters of the command, and then press the UP key to get the most recent command usage with those first characters. The should be helpful for saving sessions.</p>
+
+        </li>
+
+    </ol>
+
+    <h3 id="plugins">Plugins</h3>
+
+    <dl>
+        <dt>Emmet</dt>
+        <dd><a href="https://github.com/mattn/emmet-vim">https://github.com/mattn/emmet-vim</a></dd>
+        <dd>Quick hand for building out HTML structures.</dd>
+        <dt>Surround</dt>
+        <dd><a href="http://github.com/tpope/vim-surround">https://github.com/tpope/vim-surround</a></dd>
+        <dd>Assistance for quick surround of text with the character.</dd>
+    </dl>
 
     <h3 id="workspaces">Workspaces</h3>
     <p>Sessions are like workspaces that can maintain a set of files for editing.</p>
     <dl>
         <dt>Save a session</dt>
-        <dd><code>:mksession! ~/.vim/sessions/session.vim</code></dd>
+        <dd><code>:mks! ~/.development.vim</code></dd>
         <dd><code>:mksession! ~/.development.vim</code></dd>
+        <dd><code>:mksession! ~/.vim/sessions/session.vim</code></dd>
         <dd>"session.vim" is named as example, but it would be best to use a more contextual name that represents the nature of the workspace activity (e.g., "development.vim", "research.vim", "loomis.vim").</dd>
         <dd>Some use a "sessions" directory is added to seperate session files from other file types in that directory, but it is not necessary. While an alternative would be to store a workspace file at the user's home directory as a hidden file. That way you don't get result bloat from normal home directory interrogation, but you get a more easily accessible location for saving those files.</dd>
         <dt>Restore that session</dt>
-        <dd><code>vim -S .vim/sessions/session.vim</code></dd>
         <dd><code>vim -S .development.vim</code></dd>
+        <dd><code>vim -S .vim/sessions/session.vim</code></dd>
     </dl>
 </body>
 </html>

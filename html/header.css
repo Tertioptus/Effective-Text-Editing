@@ -1,0 +1,30 @@
+nav {
+    display: grid;
+    grid-template-columns:
+        [page-start request-start response-gutter-start] 60px
+        [response-gutter-end response-start] 60px 60px 60px 60px 60px 60px
+        [request-end request-gutter-start] 60px [page-end request-gutter-end response-end];
+    grid-column-gap: 50px;
+}
+nav .col {
+    grid-column: span 2;
+}
+nav a {
+    text-decoration: unset;
+}
+nav ul {
+  padding: 0;          
+}
+nav li {
+ list-style-type: none; 
+  padding-left: 0px;
+  list-style-type: none;
+}
+nav li:first-child {
+    margin: 0;       
+    font-size: 20px;
+    font-weight: 1000;
+}
+nav li:first-child a {
+    color: rgba(0, 100, 200, 0.8);
+}
