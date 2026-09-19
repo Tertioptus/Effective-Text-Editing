@@ -1,0 +1,12 @@
+body {
+    margin: 0;
+}
+
+main, nav, h1 {
+    margin-left: 5px;
+}
+
+#backReferences {
+    margin-right: 5px;
+
+}

@@ -3,13 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <title>Effective Text Editing</title>
+    <link rel="stylesheet" href="html/all.css">
     <link rel="stylesheet" href="html/font.css">
     <link rel="stylesheet" href="html/header.css">
     <link rel="stylesheet" href="html/content.css">
     <script src="html/code-copy.js" defer></script>
+    <style>
+        header {
+            background: #2A7B9B;
+            background: linear-gradient(90deg, rgba(42, 123, 155, 1) 0%, rgba(87, 199, 133, 1) 50%, rgba(237, 221, 83, 1) 100%);
+        }
+    </style>
 </head>
 <body>
-    <h1>Effective Text Editing</h1>
+    <header>
+        <h1>Effective Text Editing</h1>
+        <div id="backReferences"><a href="../memoir/qr8/@illumifin.work.employer/Illumifin-Development.html">illumifin development</a></div>
+    </header>
     <nav>
         <div class="col">
             <a href="#html">HTML</a>
@@ -29,7 +39,8 @@
             </ul>
         </div>
     </nav>
-    <h2 id="git">Git</h2>
+    <main>
+     <h2 id="git">Git</h2>
 
     <h3 id="git-recipes">Recipes</h3>
 
@@ -82,5 +93,7 @@
         <dd><code>vim -S .development.vim</code></dd>
         <dd><code>vim -S .vim/sessions/session.vim</code></dd>
     </dl>
+   
+    </main>
 </body>
 </html>
