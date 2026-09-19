@@ -26,8 +26,32 @@ dl.vertical dd {
 .info { color: rgba(0, 0, 130, 1); }
 .suspended { color: rgba(130, 130, 130, 1); }
 
+ul.users {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    text-align: center;
+}
+ul.users li{
+    padding: 5px;
+    outline: 1px solid #000;
+}
+ul.users dt {
+    font-weight: revert;
+    text-align: right;
+}
+ul.users dd {
+    width: 200px;
+    text-align: left;
+    padding-left: 5px;
+}
 
-th {text-align:left}
+.horizontal-list li {
+    /* optional styling */
+}th {text-align:left}
 th.title {text-align:center}
 
 table {
