@@ -1,5 +1,18 @@
+header {
+    display: flex;
+}
 h1 {
     margin: 0;
+}
+#backReferences {
+    /* After all widths and non-auto margins have been calculated, give me whatever remaining space is available. */
+    margin-left: auto;
+}
+#backReferences li {
+    list-style-type: none;
+}
+#backReferences a:visited {
+    color: inherit;
 }
 nav {
     display: grid;
@@ -45,7 +58,6 @@ nav ul ul a {
     font-weight: 600;
 }
 nav li {
- list-style-type: none; 
-  padding-left: 0px;
-  list-style-type: none;
+    padding-left: 0px;
+    list-style-type: none;
 }
