@@ -69,3 +69,6 @@ td {
 td:first-child {
     text-align:left;
 }
+pre {
+    border-style: ridge;
+}

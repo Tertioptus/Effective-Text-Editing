@@ -1,6 +1,7 @@
 header {
     display: flex;
     align-items: flex-end;
+    border-bottom: 2px solid #CCC;
 }
 h1 {
     margin: 0;
@@ -25,9 +26,7 @@ nav {
         [response-gutter-end response-start] 60px 60px 60px 60px 60px 60px 60px 60px 
         [request-end request-gutter-start] 60px [page-end request-gutter-end response-end];
     grid-column-gap: 50px;
-}
-nav:first-of-type {
-    border-top: 2px solid #CCC;
+    background-color: #F9F9F9;
 }
 nav:last-of-type {
     padding-bottom: 5px;
