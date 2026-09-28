@@ -3,6 +3,19 @@ header {
     align-items: flex-end;
     border-bottom: 2px solid #CCC;
 }
+section header {
+    background: revert;
+    display: revert;
+    align-items: revert;
+    border-bottom: revert;
+    font-weight: bold;
+}
+section header {font-size: 1.5em;}
+section section header {font-size: 1.3em;}
+section section {
+    margin-left: 20px;
+}
+
 h1 {
     margin: 0;
 }

@@ -26,7 +26,7 @@ dl.vertical dd {
 .info { color: rgba(0, 0, 130, 1); }
 .suspended { color: rgba(130, 130, 130, 1); }
 
-ul.users {
+ul.users, ul.profiles {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
@@ -35,18 +35,35 @@ ul.users {
     list-style: none;
     text-align: center;
 }
-ul.users li{
+ul.users li, ul.profiles li{
     padding: 5px;
     outline: 1px solid #000;
+    background-color: skyblue;
 }
-ul.users dt {
+ul.users dl, ul.profiles dl {
+    background-color: white;
+    padding: 2px;
+}
+ul.users dt, ul.profiles dt{
     font-weight: revert;
     text-align: right;
 }
-ul.users dd {
-    width: 200px;
+ul.users dd, ul.profiles dd{
+    width: 600px;
     text-align: left;
     padding-left: 5px;
+}
+/* I found it difficult to get uniform background coloring when there are varying dl item counts and in under a flex grouping, thus using a linearly colored background suffices for separating the header from the dl content, while keeping the whole box cohesive. */
+ul.users li {
+    background: #82fdff;
+    background: linear-gradient(180deg, rgba(130, 253, 255, 1) 0%, rgba(255, 255, 255, 1) 28%);
+}
+ul.users dd {
+    width: 200px;
+}
+ul.user b {
+    width: stretch;
+    background-color: skyblue;
 }
 
 .horizontal-list li {
@@ -66,7 +83,12 @@ td {
     padding: 4px;
     text-align:right;
 }
+th {
+    background-color: #EEE;
+    text-align:center;
+}
 td:first-child {
+    font-weight: bold;
     text-align:left;
 }
 pre {
